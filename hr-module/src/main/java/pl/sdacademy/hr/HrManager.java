@@ -2,6 +2,7 @@ package pl.sdacademy.hr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,8 +36,12 @@ class HrManager {
 			/* employee.getFirstName().contains(phrase)
 			|| employee.getLastName().contains(phrase)
 			|| employee.getBirthDate().contains(phrase))*/
-//			przeniesione do metody matches w klasie Employee
+			//			przeniesione do metody matches w klasie Employee
 			.collect(Collectors.toList());
 
+	}
+
+	public List<Employee> sortByFirstName() {
+		return allEmployees.stream().sorted().collect(Collectors.toList());
 	}
 }
