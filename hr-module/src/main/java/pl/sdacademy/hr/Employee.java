@@ -18,4 +18,10 @@ class Employee {
 	public String toString() {
 		return firstName + " " + lastName + ", " + birthDate;
 	}
+
+	public boolean matches(String phrase) {
+		return firstName.contains(phrase)
+			|| lastName.contains(phrase)
+			|| birthDate.contains(phrase);
+	}
 }
