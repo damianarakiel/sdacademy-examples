@@ -152,10 +152,51 @@ class HrManagerTest {
 		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
 		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
 		Employee stefanBorg = hrManager.create("Stefan", "Borg", "17-07-1978");
-//		Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
+		//		Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstName();
 		//then
-		assertThat(sortEmployees).containsExactly(adam,jerzy,stefanBorg);
+		assertThat(sortEmployees).containsExactly(adam, jerzy, stefanBorg);
+	}
+
+	@DisplayName("should sort 2 employee by firstName descending with Bubblesort")
+	@Test
+	void hrManagerTest11() {
+		//given
+		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
+		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
+		//		Employee stefanBorg = hrManager.create("Stefan", "Borg", "17-07-1978");
+		//		Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
+		//when
+		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortEmployees).containsExactly(jerzy, adam);
+	}
+
+	@DisplayName("should sort 3 employee by firstName descending with Bubblesort")
+	@Test
+	void hrManagerTest12() {
+		//given
+		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
+		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
+		Employee stefan = hrManager.create("Stefan", "Borg", "17-07-1978");
+		//when
+		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortEmployees).containsExactly(stefan, jerzy, adam);
+	}
+
+	@DisplayName("should sort 4 employee by firstName descending with Bubblesort")
+	@Test
+	void hrManagerTest13() {
+		//given
+		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
+		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
+		Employee stefanBorg = hrManager.create("Stefan", "Borg", "17-07-1978");
+		Employee stefanGarda = hrManager.create("Stefanek", "Garda", "13-01-1976");
+		//when
+		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortEmployees).containsExactly(stefanGarda, stefanBorg, jerzy, adam);
 	}
 }

@@ -1,8 +1,6 @@
 package pl.sdacademy.hr;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,5 +41,18 @@ class HrManager {
 
 	public List<Employee> sortByFirstName() {
 		return allEmployees.stream().sorted().collect(Collectors.toList());
+	}
+
+	public List<Employee> sortByFirstNameWithBubble() {
+		for(int j=0; j<allEmployees.size()-1;j++){
+		for(int i=0; i<allEmployees.size()-1-j;i++) {
+			if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName()) < 0) {
+				Employee temp = allEmployees.get(i);
+				allEmployees.set(i, allEmployees.get(i + 1));
+				allEmployees.set(i + 1, temp);
+				}
+			}
+		}
+		return allEmployees;
 	}
 }
