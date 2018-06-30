@@ -44,15 +44,57 @@ class HrManager {
 	}
 
 	public List<Employee> sortByFirstNameWithBubble() {
-		for(int j=0; j<allEmployees.size()-1;j++){
-		for(int i=0; i<allEmployees.size()-1-j;i++) {
-			if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName()) < 0) {
-				Employee temp = allEmployees.get(i);
-				allEmployees.set(i, allEmployees.get(i + 1));
-				allEmployees.set(i + 1, temp);
+		for (int j = 0; j < allEmployees.size() - 1; j++) {
+			for (int i = 0; i < allEmployees.size() - 1 - j; i++) {
+				if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName
+					()) < 0) {
+					Employee temp = allEmployees.get(i);
+					allEmployees.set(i, allEmployees.get(i + 1));
+					allEmployees.set(i + 1, temp);
 				}
 			}
 		}
 		return allEmployees;
+	}
+
+	// SORTOWANIE QUICKSORT:
+
+	public List<Employee> sortByLastName() {
+		/*return allEmployees.stream().sorted(Comparator.comparing(Employee::getFirstName)).collect
+		(Collectors.toList()); */
+		// return allEmployees.stream().sorted().collect(Collectors.toList());
+		//QuickSort
+		quickSort(allEmployees, 0, allEmployees.size() - 1);
+
+
+		return allEmployees;
+	}
+
+
+	public List<Employee> quickSort(List<Employee> employees, int low, int high) {
+		if (low < high) {
+			int pi = partition(employees, low, high);
+
+			quickSort(employees, low, pi - 1);
+			quickSort(employees, pi + 1, high);
+		}
+		return employees;
+	}
+
+	private int partition(List<Employee> employees, int low, int high) {
+		Employee pivot = employees.get(high);
+		int i = low - 1;
+		for (int j = low; j <= high - 1; j++) {
+			if (employees.get(j).getLastName().compareTo(pivot.getLastName()) <= 0) {
+				i++;
+				Employee temp = employees.get(j);
+				employees.set(j, employees.get(i));
+				employees.set(i, temp);
+			}
+		}
+		Employee temp = employees.get(i + 1);
+		employees.set(i + 1, employees.get(high));
+		employees.set(high, temp);
+		return i + 1;
 	}
 }
