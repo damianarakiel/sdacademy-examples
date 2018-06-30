@@ -89,6 +89,7 @@ class HrManager {
 		(Collectors.toList()); */
 		// return allEmployees.stream().sorted().collect(Collectors.toList());
 		//QuickSort
+		List<Employee> allEmployees = findAll();
 		quickSort(allEmployees, 0, allEmployees.size() - 1);
 
 
