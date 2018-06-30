@@ -152,7 +152,7 @@ class HrManagerTest {
 		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
 		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
 		Employee stefanBorg = hrManager.create("Stefan", "Borg", "17-07-1978");
-		//		Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
+		//Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstName();
 		//then
@@ -198,5 +198,19 @@ class HrManagerTest {
 		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
 		//then
 		assertThat(sortEmployees).containsExactly(stefanGarda, stefanBorg, jerzy, adam);
+	}
+
+	@DisplayName("should sort by lastName ascending") //QUICKSORT
+	@Test
+	void hrManagerTest14() {
+		//given
+		Employee jerzy = hrManager.create("Jerzy", "Borg", "13-01-1976");
+		Employee adam = hrManager.create("Adam", "Nowak", "01-12-1970");
+		//Employee stefanBorg = hrManager.create("Stefan", "Borg", "17-07-1978");
+		Employee stefanGarda = hrManager.create("Stefan", "Garda", "13-01-1976");
+		//when
+		List<Employee> sortEmployees = hrManager.sortByLastName();
+		//then
+		assertThat(sortEmployees).containsExactly(jerzy, stefanGarda, adam);
 	}
 }
