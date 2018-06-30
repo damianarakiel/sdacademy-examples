@@ -1,20 +1,46 @@
 package pl.sdacademy.hr;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 class HrManager {
 	private List<Employee> allEmployees = new ArrayList<>();
+	private static final Path PATH = Paths.get("employees.txt");
 
 	Employee create(String firstName, String lastName, String birthDate) {
 		Employee employee = new Employee(firstName, lastName, birthDate);
 		allEmployees.add(employee);
+		try {
+			Files.write(PATH, allEmployees.stream().map(Employee::toString).collect(Collectors.toList()));
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 		return employee;
 	}
 
+	/*Employee create(String firstName, String lastName, String birthDate) {
+		Employee employee = new Employee(firstName, lastName, birthDate);
+		allEmployees.add(employee);
+		return employee;
+	}*/
+
 	List<Employee> findAll() {
-		return allEmployees;
+		try {
+			return Files.readAllLines(PATH).stream().map((line) -> {
+				String[] splitline = line.split(" ");
+				Employee employee = new Employee(splitline[0], splitline[1], splitline[2]);
+				return employee;
+			}).collect(Collectors.toList());
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public List<Employee> searchByLastName(String lastName) {
@@ -46,8 +72,7 @@ class HrManager {
 	public List<Employee> sortByFirstNameWithBubble() {
 		for (int j = 0; j < allEmployees.size() - 1; j++) {
 			for (int i = 0; i < allEmployees.size() - 1 - j; i++) {
-				if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName
-					()) < 0) {
+				if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName()) < 0) {
 					Employee temp = allEmployees.get(i);
 					allEmployees.set(i, allEmployees.get(i + 1));
 					allEmployees.set(i + 1, temp);
