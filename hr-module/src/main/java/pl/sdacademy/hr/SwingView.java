@@ -73,7 +73,7 @@ public class SwingView {
 		JTextField lastNameTextField = new JTextField("Last Name");
 		JTextField birthDateTextField = new JTextField("Birth Date");
 
-		addButton.addActionListener(e->{
+		addButton.addActionListener(e -> {
 			adapter.addNewEmployee(tableModel, firstNameTextField.getText(), lastNameTextField.getText(),
 				birthDateTextField.getText());
 		});
