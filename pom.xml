@@ -36,6 +36,9 @@
 		<module>hr-module</module>
 		<module>printer</module>
 		<module>garbage</module>
+		<module>97-garbage_collectors</module>
+		<module>98-printer_document</module>
+		<module>99-hr_module</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>

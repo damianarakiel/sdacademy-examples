@@ -1,5 +1,6 @@
 package pl.sdacademy.hr;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +50,7 @@ class HrManagerTest {
 		//when
 		List<Employee> allEmployees = hrManager.findAll();
 		//then
-		assertThat(allEmployees).containsOnly(newEmployee);
+		Assertions.assertThat(allEmployees).containsOnly(newEmployee);
 	}
 
 	@DisplayName("should check if two new allEmployees is added to the database")
@@ -61,7 +62,7 @@ class HrManagerTest {
 		//when
 		List<Employee> allEmployees = hrManager.findAll();
 		//then
-		assertThat(allEmployees).containsOnly(adam, george);
+		Assertions.assertThat(allEmployees).containsOnly(adam, george);
 	}
 
 	@DisplayName("should find single employee with given lastName")
@@ -74,7 +75,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByLastName("Borg");
 		//then
-		assertThat(foundEmployees).containsOnly(jerzy);
+		Assertions.assertThat(foundEmployees).containsOnly(jerzy);
 	}
 
 	@DisplayName("should find every employee with given lastName")
@@ -87,7 +88,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByLastName("Borg");
 		//then
-		assertThat(foundEmployees).containsOnly(jerzy, stefan);
+		Assertions.assertThat(foundEmployees).containsOnly(jerzy, stefan);
 	}
 
 	@DisplayName("should find no employee there is no employee with given lastName")
@@ -100,7 +101,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByLastName("Kowalski");
 		//then
-		assertThat(foundEmployees).isEmpty();
+		Assertions.assertThat(foundEmployees).isEmpty();
 	}
 
 	@DisplayName("should find two employee with firstName matching given search phrase")
@@ -114,7 +115,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByPhrase("Stefan");
 		//then
-		assertThat(foundEmployees).containsOnly(stefanBorg, stefanGarda);
+		Assertions.assertThat(foundEmployees).containsOnly(stefanBorg, stefanGarda);
 	}
 
 	@DisplayName("should find two employee with lastName matching given search phrase")
@@ -128,7 +129,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByPhrase("Borg");
 		//then
-		assertThat(foundEmployees).containsOnly(jerzy, stefanBorg);
+		Assertions.assertThat(foundEmployees).containsOnly(jerzy, stefanBorg);
 	}
 
 	@DisplayName("should find two employee with birthDate matching given search phrase")
@@ -142,7 +143,7 @@ class HrManagerTest {
 		//when
 		List<Employee> foundEmployees = hrManager.searchByPhrase("13-01-1976");
 		//then
-		assertThat(foundEmployees).containsOnly(jerzy, stefanGarda);
+		Assertions.assertThat(foundEmployees).containsOnly(jerzy, stefanGarda);
 	}
 
 	@DisplayName("should sort by firstName ascending")
@@ -156,7 +157,7 @@ class HrManagerTest {
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstName();
 		//then
-		assertThat(sortEmployees).containsExactly(adam, jerzy, stefanBorg);
+		Assertions.assertThat(sortEmployees).containsExactly(adam, jerzy, stefanBorg);
 	}
 
 	@DisplayName("should sort 2 employee by firstName descending with Bubblesort")
@@ -170,7 +171,7 @@ class HrManagerTest {
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
 		//then
-		assertThat(sortEmployees).containsExactly(jerzy, adam);
+		Assertions.assertThat(sortEmployees).containsExactly(jerzy, adam);
 	}
 
 	@DisplayName("should sort 3 employee by firstName descending with Bubblesort")
@@ -183,7 +184,7 @@ class HrManagerTest {
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
 		//then
-		assertThat(sortEmployees).containsExactly(stefan, jerzy, adam);
+		Assertions.assertThat(sortEmployees).containsExactly(stefan, jerzy, adam);
 	}
 
 	@DisplayName("should sort 4 employee by firstName descending with Bubblesort")
@@ -197,7 +198,7 @@ class HrManagerTest {
 		//when
 		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
 		//then
-		assertThat(sortEmployees).containsExactly(stefanGarda, stefanBorg, jerzy, adam);
+		Assertions.assertThat(sortEmployees).containsExactly(stefanGarda, stefanBorg, jerzy, adam);
 	}
 
 	@DisplayName("should sort by lastName ascending") //QUICKSORT
@@ -211,6 +212,6 @@ class HrManagerTest {
 		//when
 		List<Employee> sortEmployees = hrManager.sortByLastName();
 		//then
-		assertThat(sortEmployees).containsExactly(jerzy, stefanGarda, adam);
+		Assertions.assertThat(sortEmployees).containsExactly(jerzy, stefanGarda, adam);
 	}
 }

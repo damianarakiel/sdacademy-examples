@@ -87,6 +87,6 @@ class CommandLineRunnerTest {
 		//when
 		List<String> allEmployees = CommandLineRunner.list(hrManager);
 		//then
-		assertThat(allEmployees).containsOnly("Adam Nowak, 01-12-1970");
+		assertThat(allEmployees).containsOnly("Adam Nowak 01-12-1970");
 	}
 }
