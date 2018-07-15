@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 class BuilderExample {
 	public static void main(String[] args) {

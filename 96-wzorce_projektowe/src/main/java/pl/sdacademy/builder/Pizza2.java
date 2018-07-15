@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 public class Pizza2 {
 	String dough = "";

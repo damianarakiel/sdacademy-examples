@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 abstract class PizzaBuilder {
 	protected Pizza pizza;

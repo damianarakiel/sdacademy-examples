@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 class Waiter {
 	private PizzaBuilder pizzaBuilder;

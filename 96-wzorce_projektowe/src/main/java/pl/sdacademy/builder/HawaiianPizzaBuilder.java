@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 class HawaiianPizzaBuilder extends PizzaBuilder {
 	public void buildDough() {

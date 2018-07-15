@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.builder;
 
 import lombok.Builder;
 import lombok.ToString;
