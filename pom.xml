@@ -37,6 +37,7 @@
 		<module>98-printer_document</module>
 		<module>99-hr_module</module>
 		<module>96-wzorce_projektowe</module>
+		<module>95-tdd_car</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>
