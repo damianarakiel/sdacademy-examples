@@ -52,6 +52,6 @@ public class CarTest {
 		int result = station.price(car, amount);
 		//then
 		assertThat(amount).isEqualTo(car.getMaxLevel() - currentLevel);
-		assertThat(result).isEqualTo(amount * station.getCennik().get(typeCar));
+		assertThat(result).isEqualTo(amount * station.getPricing().get(typeCar));
 	}
 }
