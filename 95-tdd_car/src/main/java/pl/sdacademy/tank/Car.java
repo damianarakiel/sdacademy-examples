@@ -12,22 +12,26 @@ public class Car {
 		this.typeCar = typeCar;
 	}
 
-	final byte maxLevel = 42;
-	byte currentLevel = 10;
+	final int MAX_FUEL_LEVEL = 42;
+	final int MAX_DIRT_VALUE = 100;
+	final int MAX_TIRES_USAGE_VALUE = 100;
+	int currentFuelLevel = 0;
+	int carDirt = 0;
+	int tires = 0;
 
 	//	public TypeCar getTypeCar() {
 	//		return typeCar;
 	//	}
 	//
-	//	public byte getMaxLevel() {
-	//		return maxLevel;
+	//	public byte getMAX_FUEL_LEVEL() {
+	//		return MAX_FUEL_LEVEL;
 	//	}
 	//
-	//	public byte getCurrentLevel() {
-	//		return currentLevel;
+	//	public byte getCurrentFuelLevel() {
+	//		return currentFuelLevel;
 	//	}
 	//
-	//	public void setCurrentLevel(byte currentLevel) {
-	//		this.currentLevel = currentLevel;
+	//	public void setCurrentFuelLevel(byte currentFuelLevel) {
+	//		this.currentFuelLevel = currentFuelLevel;
 	//	}
 }
