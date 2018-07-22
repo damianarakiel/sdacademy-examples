@@ -16,5 +16,21 @@ public class PitStop {
 		vulcanizer.ifNewTiresNeeded(car);
 	}
 
-
+//	public boolean ifServiceRealNeeded(Car car) {
+//		return
+// 			station.ifWashRealNeeded(car) ||
+//			station.ifFuelRealNeeded(car) ||
+//			vulcanizer.ifNewTiresRealNeeded(car);
+//		}
+//
+//	public void pervormNeededServices(Car car) {
+//		if( station.ifWashRealNeeded(car)) {
+//			station.washCar(car);
+// 		}
+//		if( station.ifFuelRealNeeded(car)) {
+//			station.fullTank(car);
+//		}
+//		if( vulcanizer.ifNewTiresRealNeeded(car)) {
+//			vulcanizer.changeOfTires(car);
+//		}
 }

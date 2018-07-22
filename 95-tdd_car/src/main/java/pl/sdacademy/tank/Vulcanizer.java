@@ -10,6 +10,5 @@ public class Vulcanizer {
 		if (car.getTires() >= 85) {
 			changeOfTires(car);
 		}
-
 	}
 }

@@ -11,8 +11,11 @@ import java.util.List;
 
 public class Track {
 
-	@Getter
 	private List<Car> cars;
+
+	public void addCar(Car car) {
+		cars.add(car);
+	}
 
 	public Track() {
 		cars = new ArrayList<>();
@@ -26,18 +29,14 @@ public class Track {
 
 	public void driveOneRound(Car car) {
 		round++;
-		car.setTires(car.getTires()+3);
-		car.setCarDirt(car.getCarDirt()+2);
-		car.setCurrentFuelLevel(car.getCurrentFuelLevel()-7);
+		car.setTires(car.getTires() + 3);
+		car.setCarDirt(car.getCarDirt() + 2);
+		car.setCurrentFuelLevel(car.getCurrentFuelLevel() - 7);
 	}
 
 	public void driveRace(int numberOfRounds) {
 		for (int j = 0; j < numberOfRounds; j++) {
 			driveOneRound(cars.get(i));
 		}
-	}
-
-	public void addCar(Car car) {
-		cars.add(car);
 	}
 }

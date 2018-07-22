@@ -1,5 +1,6 @@
 package pl.sdacademy.tank;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,6 @@ public class PitStopTest {
 	PitStop pitStop;
 
 	@Mock
-	Track track;
-
-	@Mock
 	Station station;
 
 	@Mock
@@ -27,7 +25,7 @@ public class PitStopTest {
 		pitStop = new PitStop(station, vulcanizer);
 	}
 
-	@DisplayName("samochód zjeżdża do pitstopu dla zabrudzenia, braku paliwa, lub zużycia opon")
+	@DisplayName("samochód ma możliwość sprawdzenia czy muszę zjechać do pitstopu")
 	@Test
 	void pitStopTest01() {
 		//given
